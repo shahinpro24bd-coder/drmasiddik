@@ -198,7 +198,7 @@
   var sheetCacheCount = 0;
 
   function brandCss() {
-    if (sheetCache !== null && sheetCacheCount === document.styleSheets.length) return sheetCache;
+    if (sheetCache !== null) return sheetCache;
     var out = [];
     var sheets = document.styleSheets;
     for (var i = 0; i < sheets.length; i++) {
@@ -379,6 +379,7 @@
 
   /* stylesheets that finish loading after the first apply */
   window.addEventListener("load", function () {
+    sheetCache = null; /* rescan once every stylesheet is in */
     if (currentColor) applyTheme(currentColor);
   });
 })();
