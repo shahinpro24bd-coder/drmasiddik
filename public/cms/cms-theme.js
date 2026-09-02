@@ -10,9 +10,9 @@
   var BASE_RGB = "191, 148, 86";
 
   /* every colour in the site's warm-gold hue band is treated as brand colour */
-  var BRAND_HUE_MIN = 28;
-  var BRAND_HUE_MAX = 47;
-  var BRAND_SAT_MIN = 0.22;
+  var BRAND_HUE_MIN = 22;
+  var BRAND_HUE_MAX = 50;
+  var BRAND_SAT_MIN = 0.18;
 
   var ICON_GUARD =
     ':not(i):not(svg):not(path):not([class*="fa-"]):not([class*="bi-"]):not(.fa):not(.fas):not(.fab):not(.far)';
@@ -162,6 +162,11 @@
     for (var i = 0; i < cssRules.length; i++) {
       var rule = cssRules[i];
       try {
+        /* @keyframes: rebuild the whole animation, never emit bare frames */
+        if (rule.type === 7 || (rule.cssRules && rule.name && !rule.selectorText)) {
+          if (touched(rule.cssText)) out.push(recolor(rule.cssText, themeHsl));
+          continue;
+        }
         if (rule.cssRules && rule.type !== 1) {
           var inner = [];
           collect(rule.cssRules, themeHsl, inner);
@@ -204,6 +209,34 @@
     }
   }
 
+  /* colour-bearing HTML/SVG attributes (fill, stroke, bgcolor, ...) */
+  var COLOR_ATTRS = ["fill", "stroke", "stop-color", "flood-color", "bgcolor", "color"];
+
+  function recolorAttrs(root, themeHsl) {
+    if (!root || !root.querySelectorAll) return;
+    var sel = COLOR_ATTRS.map(function (a) { return "[" + a + "]"; }).join(",");
+    var nodes = root.querySelectorAll(sel);
+    var list = root.matches && root.matches(sel) ? [root] : [];
+    for (var i = 0; i < nodes.length; i++) list.push(nodes[i]);
+    for (var j = 0; j < list.length; j++) {
+      var el = list[j];
+      if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,.cms-fs,#cms-login-btn")) continue;
+      for (var k = 0; k < COLOR_ATTRS.length; k++) {
+        var a = COLOR_ATTRS[k];
+        if (!el.hasAttribute(a)) continue;
+        var key = "data-cms-attr-" + a;
+        var orig = el.getAttribute(key);
+        if (orig == null) {
+          orig = el.getAttribute(a) || "";
+          if (!touched(orig)) continue;
+          el.setAttribute(key, orig);
+        }
+        var next = recolor(orig, themeHsl);
+        if (next !== el.getAttribute(a)) el.setAttribute(a, next);
+      }
+    }
+  }
+
   function watchInline() {
     if (observer || typeof MutationObserver === "undefined") return;
     observer = new MutationObserver(function (muts) {
@@ -212,7 +245,10 @@
       muts.forEach(function (m) {
         if (m.type === "childList") {
           for (var i = 0; i < m.addedNodes.length; i++) {
-            if (m.addedNodes[i].nodeType === 1) recolorInline(m.addedNodes[i], themeHsl);
+            if (m.addedNodes[i].nodeType === 1) {
+              recolorInline(m.addedNodes[i], themeHsl);
+              recolorAttrs(m.addedNodes[i], themeHsl);
+            }
           }
         } else if (m.type === "attributes" && m.target.nodeType === 1) {
           var el = m.target;
@@ -280,6 +316,9 @@
     styleEl("cms-theme-style").textContent = out.join("\n");
 
     recolorInline(document.documentElement, themeHsl);
+    recolorAttrs(document.documentElement, themeHsl);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", color);
     watchInline();
   }
 
