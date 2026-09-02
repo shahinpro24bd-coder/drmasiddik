@@ -84,7 +84,20 @@
 
   var BASE_HSL = rgbToHsl.apply(null, hexToRgb(BASE_HEX));
 
+  /* colours that are part of the site's brand palette even when their
+     saturation/hue falls outside the generic band (they MUST recolour, or the
+     page ends up with a mix of the new theme colour and the old gold/orange) */
+  var BRAND_LIST = {
+    "#bf9456": 1, "#d4a95a": 1, "#f39c12": 1, "#e8ab3a": 1, "#8b6f47": 1,
+    "#9a743e": 1, "#b8860b": 1, "#c9a227": 1, "#a67c52": 1, "#deb887": 1,
+    "#daa520": 1, "#cd9b4a": 1, "#e0a458": 1, "#d99a2b": 1, "#f5b041": 1,
+    "#e67e22": 1, "#d68910": 1, "#7d5a2e": 1, "#6b4f2a": 1, "#fdf6ec": 0,
+  };
+
   function isBrand(rgb) {
+    var key = toHex(rgb).toLowerCase();
+    if (BRAND_LIST[key] === 1) return true;
+    if (BRAND_LIST[key] === 0) return false;
     var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
     return (
       hsl[1] >= BRAND_SAT_MIN &&
@@ -92,8 +105,8 @@
       hsl[0] <= BRAND_HUE_MAX &&
       hsl[2] > 0.04 &&
       hsl[2] < 0.97 &&
-      /* keep vivid rating-star / third-party logo yellows untouched */
-      !(hsl[1] > 0.9 && hsl[2] > 0.45)
+      /* keep pure rating-star / third-party logo yellows untouched */
+      !(hsl[1] > 0.95 && hsl[0] >= 44)
     );
   }
 
@@ -102,10 +115,12 @@
   function mapColor(rgb, themeHsl) {
     var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
     var satRatio = BASE_HSL[1] > 0 ? hsl[1] / BASE_HSL[1] : 1;
-    var s = Math.max(0, Math.min(1, themeHsl[1] * satRatio));
+    satRatio = Math.max(0.45, Math.min(1.6, satRatio));
+    var s = Math.max(0, Math.min(1, Math.min(themeHsl[1] * satRatio, themeHsl[1] + 0.3)));
     var l = Math.max(0, Math.min(1, hsl[2] + (themeHsl[2] - BASE_HSL[2]) * 0.55));
     return hslToRgb(themeHsl[0], s, l).map(Math.round);
   }
+
 
   var COLOR_RE = /#([0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b|rgba?\(\s*(\d{1,3})\s*[, ]\s*(\d{1,3})\s*[, ]\s*(\d{1,3})\s*(?:[,/]\s*([0-9.%]+)\s*)?\)/g;
 
