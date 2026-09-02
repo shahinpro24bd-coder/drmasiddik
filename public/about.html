@@ -1,0 +1,761 @@
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ডা. এম. এ. বি. সিদ্দিক | কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ডা. এম. এ. বি. সিদ্দিক, কোলোরেক্টাল সার্জন, ল্যাপারোস্কোপিক সার্জারি, ক্যান্সার সার্জন, স্তন সার্জারি, পাইলস, ফিস্টুলা, গলব্লাডারের পাথর, এন্ডোস্কোপি, গাজীপুর, ঢাকা" name="keywords">
+    <meta content="ডা. এম. এ. বি. সিদ্দিক - এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারি), এমএস (জেনারেল সার্জারি) বিএসএমএমইউ। সহকারী অধ্যাপক, সার্জারি বিভাগ, বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ। কোলোরেক্টাল, ল্যাপারোস্কোপিক, স্তন ও ক্যান্সার সার্জারিতে বিশেষজ্ঞ।" name="description">
+    <link  rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link         href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="npm/bootstrap-icons-1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ===== Premium Profile Card with Dotted Border ===== */
+        .profile-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 2px dashed rgba(191, 148, 86, 0.25);
+            transition: all 0.4s ease;
+        }
+        .profile-card:hover {
+            border-style: solid;
+            border-color: var(--bs-primary);
+            box-shadow: 0 20px 60px rgba(191, 148, 86, 0.15);
+        }
+        .profile-card-header {
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+        }
+        .profile-card-header h3 {
+            font-family: "Noto Serif Bengali", "Playfair Display", serif;
+            margin-bottom: 0.25rem;
+        }
+        .profile-card-body {
+            padding: 2rem;
+        }
+        .profile-detail {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed rgba(191, 148, 86, 0.2);
+        }
+        .profile-detail:last-child {
+            border-bottom: none;
+        }
+        .profile-detail i {
+            color: var(--bs-primary);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+        .profile-detail .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 0;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        .profile-detail .value {
+            font-weight: 500;
+            color: var(--bs-dark);
+            margin-bottom: 0;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        /* ===== Timeline ===== */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 2px dashed rgba(191, 148, 86, 0.3);
+        }
+        .timeline-item:last-child {
+            border-left: 2px dashed transparent;
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bs-primary);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--bs-primary);
+        }
+        .timeline-item h5 {
+            font-family: "Noto Serif Bengali", "Playfair Display", serif;
+            font-weight: 500;
+            color: var(--bs-dark);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-item .text-primary {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .timeline-item p {
+            color: #666;
+            font-size: 0.9rem;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        /* ===== Credential Pill ===== */
+        .credential-pill {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(191, 148, 86, 0.08);
+            border: 2px dashed rgba(191, 148, 86, 0.25);
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            margin: 0.3rem;
+            font-size: 0.85rem;
+            color: var(--bs-dark);
+            transition: all 0.3s ease;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        .credential-pill:hover {
+            background: var(--bs-primary);
+            color: #fff;
+            border-color: var(--bs-primary);
+            border-style: solid;
+        }
+        .credential-pill i {
+            color: var(--bs-primary);
+            margin-right: 0.5rem;
+        }
+        .credential-pill:hover i {
+            color: #fff;
+        }
+        /* ===== Qualification Detail Cards ===== */
+        .qual-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.8rem;
+            border: 2px dashed rgba(191, 148, 86, 0.2);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .qual-card:hover {
+            border-color: var(--bs-primary);
+            border-style: solid;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(191, 148, 86, 0.12);
+        }
+        .qual-card .qual-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(191, 148, 86, 0.15), rgba(191, 148, 86, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .qual-card:hover .qual-icon {
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+        }
+        .qual-card .qual-icon i {
+            color: var(--bs-primary);
+            font-size: 1.2rem;
+            transition: color 0.4s ease;
+        }
+        .qual-card:hover .qual-icon i {
+            color: #fff;
+        }
+        .qual-card h6 {
+            font-family: "Noto Serif Bengali", "Playfair Display", serif;
+            color: var(--bs-dark);
+            margin-bottom: 0.25rem;
+        }
+        .qual-card p {
+            font-size: 0.82rem;
+            color: #777;
+            margin-bottom: 0;
+            line-height: 1.5;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        /* ===== Info Card Dotted ===== */
+        .info-card-dotted {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 2px dashed rgba(191, 148, 86, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .info-card-dotted::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bs-primary), #d4a95a, var(--bs-primary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .info-card-dotted:hover::after {
+            transform: scaleX(1);
+        }
+        .info-card-dotted:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(191, 148, 86, 0.18);
+            border-color: var(--bs-primary);
+            border-style: solid;
+        }
+        .info-card-dotted .icon-box {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 8px 25px rgba(191, 148, 86, 0.3);
+            transition: transform 0.4s ease;
+        }
+        .info-card-dotted:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .info-card-dotted .icon-box i {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .info-card-dotted h5 {
+            font-family: "Noto Serif Bengali", "Playfair Display", serif;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--bs-dark);
+        }
+        .info-card-dotted p {
+            font-size: 0.88rem;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.7;
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        /* ===== About Image ===== */
+        .about-img-responsive {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        /* ===== Gallery Images ===== */
+        .gallery-img-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px dashed rgba(191, 148, 86, 0.2);
+            transition: all 0.4s ease;
+        }
+        .gallery-img-card:hover {
+            border-style: solid;
+            border-color: var(--bs-primary);
+            box-shadow: 0 15px 40px rgba(191, 148, 86, 0.15);
+            transform: translateY(-5px);
+        }
+        .gallery-img-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        .gallery-img-card:hover img {
+            transform: scale(1.05);
+        }
+        @media (max-width: 575px) {
+            .gallery-img-card img {
+                height: 180px;
+            }
+        }
+        /* Bangla font override for all text */
+        body {
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .font-dancing-script {
+            font-family: 'Noto Serif Bengali', 'Playfair Display', serif !important;
+        }
+        .text-primary, .btn-link, .navbar-brand {
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        .display-1 {
+            font-family: 'Noto Serif Bengali', 'Playfair Display', serif !important;
+        }
+        .breadcrumb-item {
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+        .btn {
+            font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+        }
+    </style>
+<!--CMS-THEME-START-->
+<style id="cms-static-theme">
+:root{--bs-primary:#f39c12;--bs-primary-rgb:243,156,18;}
+/*!
+ * Bootstrap v5.0.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */:root{--bs-blue: #0d6efd;--bs-indigo: #6610f2;--bs-purple: #6f42c1;--bs-pink: #d63384;--bs-red: #dc3545;--bs-orange: #fd7e14;--bs-yellow: #ffc107;--bs-green: #198754;--bs-teal: #20c997;--bs-cyan: #0dcaf0;--bs-white: #fff;--bs-gray: #6c757d;--bs-gray-dark: #343a40;--bs-primary: #f39c12;--bs-secondary: #444444;--bs-success: #198754;--bs-info: #0dcaf0;--bs-warning: #ffc107;--bs-danger: #dc3545;--bs-light: #F8F7F4;--bs-dark: #252525;--bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))}
+a{color:#f39c12;text-decoration:none}
+.form-check-input:checked{background-color:#f39c12;border-color:#f39c12}
+.form-check-input[type=checkbox]:indeterminate{background-color:#f39c12;border-color:#f39c12;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")}
+.form-range::-webkit-slider-thumb{width:1rem;height:1rem;margin-top:-0.25rem;background-color:#f39c12;border:0;border-radius:1rem;-webkit-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;-webkit-appearance:none;appearance:none}
+.form-range::-moz-range-thumb{width:1rem;height:1rem;background-color:#f39c12;border:0;border-radius:1rem;-moz-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;-moz-appearance:none;appearance:none}
+.btn-primary{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-primary:disabled,.btn-primary.disabled{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-outline-primary{color:#f39c12;border-color:#f39c12}
+.btn-outline-primary:hover{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-check:checked+.btn-outline-primary,.btn-check:active+.btn-outline-primary,.btn-outline-primary:active,.btn-outline-primary.active,.btn-outline-primary.dropdown-toggle.show{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-outline-primary:disabled,.btn-outline-primary.disabled{color:#f39c12;background-color:rgba(0,0,0,0)}
+.btn-link{font-weight:400;color:#f39c12;text-decoration:none}
+.dropdown-item.active,.dropdown-item:active{color:#fff;text-decoration:none;background-color:#f39c12}
+.dropdown-menu-dark .dropdown-item.active,.dropdown-menu-dark .dropdown-item:active{color:#fff;background-color:#f39c12}
+.nav-link{display:block;padding:.5rem 1rem;color:#f39c12;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out}
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link{color:#fff;background-color:#f39c12}
+.page-link{position:relative;display:block;color:#f39c12;background-color:#fff;border:1px solid #dee2e6;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+.page-item.active .page-link{z-index:3;color:#fff;background-color:#f39c12;border-color:#f39c12}
+.progress-bar{display:flex;flex-direction:column;justify-content:center;overflow:hidden;color:#fff;text-align:center;white-space:nowrap;background-color:#f39c12;transition:width .6s ease}
+.list-group-item.active{z-index:2;color:#fff;background-color:#f39c12;border-color:#f39c12}
+.link-primary{color:#f39c12}
+.border-primary{border-color:#f39c12 !important}
+.text-primary{color:#f39c12 !important}
+.bg-primary{background-color:#f39c12 !important}
+
+
+</style>
+<!--CMS-THEME-END-->
+</head>
+<body>
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only" data-cms-id="about-1" data-cms-kind="text">Loading...</span>
+        </div>
+    </div>
+    <!-- nav -->
+    <div class="container-fluid bg-light sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <a class='navbar-brand py-2 px-3 me-0' href='index.html' style='background: var(--bs-primary);'>
+                <img src="img/themaincolorlogo.png" alt="ডা. এম. এ. বি. সিদ্দিক - সার্জন" style="height: 70px; width: auto; display: block; object-fit: contain;" data-cms-id="about-2" data-cms-kind="image">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-item nav-link active" href="index.html" data-cms-id="about-3" data-cms-kind="text">হোম</a>
+                    <a class="nav-item nav-link" href="about.html" data-cms-id="about-4" data-cms-kind="text">পরিচয়</a>
+                    <a class="nav-item nav-link" href="service.html" data-cms-id="about-5" data-cms-kind="text">সেবাসমূহ</a>
+                    <a class="nav-item nav-link" href="gallery.html" data-cms-id="about-6" data-cms-kind="text">গ্যালারি</a>
+                    <a class="nav-item nav-link" href="contact.html" data-cms-id="about-7" data-cms-kind="text">যোগাযোগ</a>
+                </div>
+                <a class="btn btn-sm btn-primary" href="contact.html" data-cms-id="about-8" data-cms-kind="text">এপয়েন্টমেন্ট বুক করুন</a>
+            </div>
+        </nav>
+    </div>
+    <!-- nav -->
+    <!-- Page Header -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container text-center py-5">
+            <h1 class="display-1 animated slideInLeft" data-cms-id="about-9" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
+                    <li class="breadcrumb-item"><a class="text-primary" href="index.html" data-cms-id="about-10" data-cms-kind="text">হোম</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" data-cms-id="about-11" data-cms-kind="text">পরিচয়</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- About Section (Bio + Quick details) -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                    <img class="about-img-responsive mb-3" src="img/about-dr.jpg" alt="ডা. এম. এ. বি. সিদ্দিক - কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন" data-cms-id="about-12" data-cms-kind="image">
+                    <div class="d-flex align-items-center bg-light rounded mb-3"
+                        style="border: 2px dashed rgba(191,148,86,0.25);">
+                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
+                            <i class="fa fa-phone fa-2x text-dark"></i>
+                        </div>
+                        <div class="px-3">
+                            <h3 data-cms-id="about-13" data-cms-kind="text">+৮৮ ০১৭০১০০১১৬১</h3>
+                            <span data-cms-id="about-14" data-cms-kind="text">অ্যাপয়েন্টমেন্ট / জরুরি জন্য কল করুন</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center rounded"
+                        style="border: 2px dashed rgba(191,148,86,0.25); background: linear-gradient(135deg, var(--bs-primary), #d4a95a);">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width: 100px; height: 100px; background: rgba(255,255,255,0.15);">
+                            <i class="fas fa-stethoscope fa-2x text-white"></i>
+                        </div>
+                        <div class="px-3">
+                            <h3 class="text-white mb-0" data-cms-id="about-15" data-cms-kind="text">বিএসএমএমইউ ও বিসিএস প্রশিক্ষিত</h3>
+                            <span class="d-inline-block mt-1 px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.2); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-family:'Hind Siliguri','Noto Serif Bengali',sans-serif;" data-cms-id="about-16" data-cms-kind="text">এফসিপিএস (সার্জারি) | এমএস (জেনারেল সার্জারি) | উন্নত ল্যাপারোস্কোপি</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="font-dancing-script text-primary" data-cms-id="about-17" data-cms-kind="text">আমার সম্পর্কে</h1>
+                    <h1 class="mb-4" data-cms-id="about-18" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক</h1>
+                    <p class="text-primary fw-bold mb-3" data-cms-id="about-19" data-cms-kind="text">এমবিবিএস (ঢাকা) | বিসিএস (স্বাস্থ্য) | এফসিপিএস (সার্জারী) | এমএস (জেনারেল সার্জারী) বিএসএমএমইউ</p>
+                    <span class="badge rounded-pill text-dark px-3 py-2 mb-3" style="background: rgba(191,148,86,0.15); border: 1.5px solid var(--bs-primary); font-size: 0.85rem;" data-cms-id="about-20" data-cms-kind="text"><i                             class="fas fa-smile me-1" style="color: var(--bs-primary);"></i> কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</span>
+                    <p class="mb-4" data-cms-id="about-21" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক একজন অত্যন্ত দক্ষ সার্জন যিনি কোলোরেক্টাল, এন্ডোল্যাপারোস্কোপিক, স্তন ও ক্যান্সার সার্জারিতে বিশেষজ্ঞ। তিনি ন্যূনতম আক্রমণাত্মক পদ্ধতি, অনকোপ্লাস্টিক স্তন সার্জারি এবং উন্নত কোলোরেক্টাল চিকিৎসার উপর জোর দিয়ে ব্যাপক সার্জিক্যাল সেবা প্রদান করেন।</p>
+                    <p class="mb-4"><span data-cms-id="about-132" data-cms-kind="text">তিনি</span> <strong data-cms-id="about-22" data-cms-kind="text">ঢাকা বিশ্ববিদ্যালয় থেকে এমবিবিএস</strong><span data-cms-id="about-133" data-cms-kind="text">,</span> <strong data-cms-id="about-23" data-cms-kind="text">বিসিএস (স্বাস্থ্য)</strong><span data-cms-id="about-134" data-cms-kind="text">,</span> <strong data-cms-id="about-24" data-cms-kind="text">এফসিপিএস (সার্জারি)</strong> <span data-cms-id="about-135" data-cms-kind="text">এবং</span> <strong data-cms-id="about-25" data-cms-kind="text">বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় (বিএসএমএমইউ) থেকে এমএস (জেনারেল সার্জারি)</strong> <span data-cms-id="about-136" data-cms-kind="text">সম্পন্ন করেছেন। বর্তমানে তিনি</span> <strong data-cms-id="about-26" data-cms-kind="text">বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজের সার্জারি বিভাগের সহকারী অধ্যাপক</strong> <span data-cms-id="about-137" data-cms-kind="text">হিসেবে কর্মরত।</span></p>
+                    <p class="mb-4"><strong data-cms-id="about-27" data-cms-kind="text">পেশাগত দর্শন:</strong> <span data-cms-id="about-138" data-cms-kind="text">নির্ভুলতা। উদ্ভাবন। সহানুভূতি। প্রতিটি চিকিৎসা পরিকল্পনা স্বাস্থ্য পুনরুদ্ধারের জন্য তৈরি করা হয়, ন্যূনতম অস্বস্তি এবং দ্রুততম পুনরুদ্ধার নিশ্চিত করে।</span></p>
+                    <div class="mb-4">
+                        <h5 class="mb-3" style="font-family: 'Noto Serif Bengali', 'Playfair Display', serif;" data-cms-id="about-28" data-cms-kind="text">বিশেষায়িত দক্ষতা</h5>
+                        <div class="credential-pill" data-cms-id="about-29" data-cms-kind="text"><i class="fas fa-check-circle"></i> ক্যান্সার সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-30" data-cms-kind="text"><i class="fas fa-check-circle"></i> কোলোরেক্টাল সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-31" data-cms-kind="text"><i class="fas fa-check-circle"></i> ল্যাপারোস্কোপিক সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-32" data-cms-kind="text"><i class="fas fa-check-circle"></i> স্তন ক্যান্সার সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-33" data-cms-kind="text"><i class="fas fa-check-circle"></i> অনকোপ্লাস্টিক স্তন সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-34" data-cms-kind="text"><i class="fas fa-check-circle"></i> পাইলস (লেজার/লঙ্গো)</div>
+                        <div class="credential-pill" data-cms-id="about-35" data-cms-kind="text"><i class="fas fa-check-circle"></i> ফিস্টুলা ও ফিসার</div>
+                        <div class="credential-pill" data-cms-id="about-36" data-cms-kind="text"><i class="fas fa-check-circle"></i> এন্ডোস্কোপি ও কোলোনোস্কোপি</div>
+                        <div class="credential-pill" data-cms-id="about-37" data-cms-kind="text"><i class="fas fa-check-circle"></i> হেপাটোবিলিয়ারি সার্জারি</div>
+                        <div class="credential-pill" data-cms-id="about-38" data-cms-kind="text"><i class="fas fa-check-circle"></i> জেনারেল সার্জারি</div>
+                    </div>
+                    <a class="btn btn-primary text-uppercase px-5 py-3" href="contact.html" data-cms-id="about-39" data-cms-kind="text">অ্যাপয়েন্টমেন্ট বুক করুন</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick Profile Cards (Dotted style) -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="font-dancing-script text-primary" data-cms-id="about-40" data-cms-kind="text">এক নজরে</h1>
+                <h1 class="mb-3" data-cms-id="about-41" data-cms-kind="text">ডাক্তারের দ্রুত প্রোফাইল</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="info-card-dotted">
+                        <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                        <h5 data-cms-id="about-42" data-cms-kind="text">ডিগ্রি ও প্রশিক্ষণ</h5>
+                        <p data-cms-id="about-43" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারি), এমএস (জেনারেল সার্জারি) বিএসএমএমইউ | বিশেষায়িত কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জারি</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="info-card-dotted">
+                        <div class="icon-box"><i class="fas fa-certificate"></i></div>
+                        <h5 data-cms-id="about-44" data-cms-kind="text">ক্লিনিকাল ফোকাস</h5>
+                        <p data-cms-id="about-45" data-cms-kind="text">কোলোরেক্টাল সার্জারি, ল্যাপারোস্কোপিক সার্জারি, স্তন ও ক্যান্সার সার্জারি, অনকোপ্লাস্টিক স্তন সার্জারি, পাইলস, ফিস্টুলা, এন্ডোস্কোপি</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="info-card-dotted">
+                        <div class="icon-box"><i class="fas fa-clinic-medical"></i></div>
+                        <h5 data-cms-id="about-46" data-cms-kind="text">চেম্বারের স্থান</h5>
+                        <p data-cms-id="about-47" data-cms-kind="text">পপুলার ডায়াগনস্টিক সেন্টার লি: (শিববাড়ি মোড়, গাজীপুর) | ল্যাবএইড লিমিটেড (উত্তরা, ঢাকা)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="info-card-dotted">
+                        <div class="icon-box"><i class="fas fa-clock"></i></div>
+                        <h5 data-cms-id="about-48" data-cms-kind="text">পরামর্শের সময়সূচী</h5>
+                        <p data-cms-id="about-49" data-cms-kind="text">পপুলার ডায়াগনস্টিক: শনি-বৃহস্পতি ২:৩০-৫:০০ বিকাল (শুক্রবার বন্ধ) | ল্যাবএইড: প্রতিদিন ৭:০০-৯:০০ রাত (মঙ্গল ও শুক্রবার বন্ধ)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Credentials / Medical Qualifications -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="font-dancing-script text-primary" data-cms-id="about-50" data-cms-kind="text">যোগ্যতা</h1>
+                <h1 class="mb-3" data-cms-id="about-51" data-cms-kind="text">শিক্ষা ও বিশেষায়িত সার্টিফিকেশন</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-user-md"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-52" data-cms-kind="text">এমবিবিএস (ঢাকা বিশ্ববিদ্যালয়)</h6>
+                            <p data-cms-id="about-53" data-cms-kind="text">ঢাকা বিশ্ববিদ্যালয় থেকে চিকিৎসা বিজ্ঞানে স্নাতক</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.15s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-certificate"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-54" data-cms-kind="text">বিসিএস (স্বাস্থ্য)</h6>
+                            <p data-cms-id="about-55" data-cms-kind="text">বাংলাদেশ সিভিল সার্ভিস (স্বাস্থ্য) ক্যাডারে অন্তর্ভুক্ত</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-56" data-cms-kind="text">এফসিপিএস (সার্জারি)</h6>
+                            <p data-cms-id="about-57" data-cms-kind="text">বাংলাদেশ কলেজ অব ফিজিশিয়ানস অ্যান্ড সার্জনস থেকে সার্জারিতে ফেলোশিপ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.25s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-microscope"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-58" data-cms-kind="text">এমএস (জেনারেল সার্জারি)</h6>
+                            <p data-cms-id="about-59" data-cms-kind="text">বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় (বিএসএমএমইউ) থেকে এমএস ডিগ্রি</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-hospital"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-60" data-cms-kind="text">সহকারী অধ্যাপক (সার্জারি বিভাগ)</h6>
+                            <p data-cms-id="about-61" data-cms-kind="text">বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.35s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-id-card"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-62" data-cms-kind="text">বিএমডিসি রেজি: ১২৩৪২</h6>
+                            <p data-cms-id="about-63" data-cms-kind="text">বাংলাদেশ মেডিকেল অ্যান্ড ডেন্টাল কাউন্সিলে নিবন্ধিত বিশেষজ্ঞ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-ribbon"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-64" data-cms-kind="text">ক্যান্সার সার্জারি বিশেষায়িত</h6>
+                            <p data-cms-id="about-65" data-cms-kind="text">কোলোরেক্টাল, পাকস্থলী, হেপাটোবিলিয়ারি ও স্তন ক্যান্সার সার্জারিতে দক্ষতা</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.45s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-procedures"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-66" data-cms-kind="text">ল্যাপারোস্কোপিক সার্জারি</h6>
+                            <p data-cms-id="about-67" data-cms-kind="text">পিত্তথলির পাথর, অ্যাপেন্ডিসাইটিস, হার্নিয়া, টিউমারের উন্নত ল্যাপারোস্কোপিক চিকিৎসা</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="qual-card">
+                        <div class="qual-icon"><i class="fas fa-eye"></i></div>
+                        <div>
+                            <h6 data-cms-id="about-68" data-cms-kind="text">এন্ডোস্কোপি ও কোলোনোস্কোপি</h6>
+                            <p data-cms-id="about-69" data-cms-kind="text">রোগ নির্ণয়, বায়োপসি, পলিপ অপসারণ ও বিদেশী বস্তু অপসারণে দক্ষতা</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Professional Journey + Profile Card (right side) -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="font-dancing-script text-primary" data-cms-id="about-70" data-cms-kind="text">পেশাগত যাত্রা</h1>
+                <h1 class="mb-3" data-cms-id="about-71" data-cms-kind="text">অভিজ্ঞতা ও উন্নত প্রশিক্ষণ</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                    <h4 class="mb-4" style="font-family: 'Noto Serif Bengali', 'Playfair Display', serif;" data-cms-id="about-72" data-cms-kind="text">ক্যারিয়ার ও প্রশিক্ষণের মাইলফলক</h4>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-73" data-cms-kind="text">এমবিবিএস (ঢাকা বিশ্ববিদ্যালয়)</h5>
+                        <span class="text-primary" data-cms-id="about-74" data-cms-kind="text">স্নাতক</span>
+                        <p data-cms-id="about-75" data-cms-kind="text">চিকিৎসা বিজ্ঞানে মৌলিক শিক্ষা ও ক্লিনিকাল প্রশিক্ষণ সম্পন্ন।</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-76" data-cms-kind="text">বিসিএস (স্বাস্থ্য) ও এফসিপিএস (সার্জারি)</h5>
+                        <span class="text-primary" data-cms-id="about-77" data-cms-kind="text">সার্জারিতে ফেলোশিপ</span>
+                        <p data-cms-id="about-78" data-cms-kind="text">বাংলাদেশ কলেজ অব ফিজিশিয়ানস অ্যান্ড সার্জনস থেকে সার্জারিতে বিশেষায়িত প্রশিক্ষণ।</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-79" data-cms-kind="text">এমএস (জেনারেল সার্জারি) - বিএসএমএমইউ</h5>
+                        <span class="text-primary" data-cms-id="about-80" data-cms-kind="text">পোস্টগ্রাজুয়েট ডিগ্রি</span>
+                        <p data-cms-id="about-81" data-cms-kind="text">বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় থেকে জেনারেল সার্জারিতে এমএস ডিগ্রি অর্জন।</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-82" data-cms-kind="text">কোলোরেক্টাল ও ল্যাপারোস্কোপিক সার্জারি বিশেষায়িত</h5>
+                        <span class="text-primary" data-cms-id="about-83" data-cms-kind="text">উন্নত প্রশিক্ষণ</span>
+                        <p data-cms-id="about-84" data-cms-kind="text">কোলোরেক্টাল সার্জারি, ল্যাপারোস্কোপিক পদ্ধতি ও ন্যূনতম আক্রমণাত্মক কৌশলে বিশেষ দক্ষতা অর্জন।</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-85" data-cms-kind="text">সহকারী অধ্যাপক (সার্জারি বিভাগ)</h5>
+                        <span class="text-primary" data-cms-id="about-86" data-cms-kind="text">বিএসএমএমইউ ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ</span>
+                        <p data-cms-id="about-87" data-cms-kind="text">সার্জারি বিভাগের সহকারী অধ্যাপক হিসেবে শিক্ষাদান ও ক্লিনিকাল সেবা প্রদান।</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 data-cms-id="about-88" data-cms-kind="text">ক্যান্সার সার্জারি বিশেষায়িত</h5>
+                        <span class="text-primary" data-cms-id="about-89" data-cms-kind="text">অনকোলজিক সার্জারি</span>
+                        <p data-cms-id="about-90" data-cms-kind="text">কোলোরেক্টাল, পাকস্থলী, হেপাটোবিলিয়ারি ও স্তন ক্যান্সার সার্জারিতে বিশেষ দক্ষতা।</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h3 data-cms-id="about-91" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক</h3>
+                            <p class="mb-0" data-cms-id="about-92" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারি), এমএস (জেনারেল সার্জারি) | কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</p>
+                        </div>
+                        <div class="profile-card-body">
+                            <div class="profile-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-93" data-cms-kind="text">ডিগ্রি ও প্রশিক্ষণ</p>
+                                    <p class="value" data-cms-id="about-94" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারি), এমএস (জেনারেল সার্জারি) বিএসএমএমইউ</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-certificate"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-95" data-cms-kind="text">বিশেষায়িত দক্ষতা</p>
+                                    <p class="value" data-cms-id="about-96" data-cms-kind="text">কোলোরেক্টাল সার্জারি, ল্যাপারোস্কোপিক সার্জারি, স্তন ও ক্যান্সার সার্জারি, অনকোপ্লাস্টিক স্তন সার্জারি, এন্ডোস্কোপি</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-hospital"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-97" data-cms-kind="text">বর্তমান পদবী</p>
+                                    <p class="value" data-cms-id="about-98" data-cms-kind="text">সহকারী অধ্যাপক (সার্জারি বিভাগ), বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-id-badge"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-99" data-cms-kind="text">বিএমডিসি রেজিস্ট্রেশন</p>
+                                    <p class="value" data-cms-id="about-100" data-cms-kind="text">Coming soon</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-stethoscope"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-101" data-cms-kind="text">সেবা ও সার্জারি</p>
+                                    <p class="value" data-cms-id="about-102" data-cms-kind="text">ক্যান্সার সার্জারি, কোলোরেক্টাল সার্জারি, ল্যাপারোস্কোপিক সার্জারি, পাইলস (লেজার/লঙ্গো), ফিস্টুলা, ফিসার, এন্ডোস্কোপি, কোলোনোস্কোপি</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-103" data-cms-kind="text">পরামর্শের সময়সূচী</p>
+                                    <p class="value" data-cms-id="about-104" data-cms-kind="text">পপুলার ডায়াগনস্টিক (গাজীপুর): শনি-বৃহস্পতি ২:৩০-৫:০০ বিকাল (শুক্রবার বন্ধ) | ল্যাবএইড (উত্তরা): প্রতিদিন ৭:০০-৯:০০ রাত (মঙ্গল ও শুক্রবার বন্ধ)</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <p class="label" data-cms-id="about-105" data-cms-kind="text">যোগাযোগ</p>
+                                    <p class="value" data-cms-id="about-106" data-cms-kind="text">+88 01710-1001161 | হোয়াটসঅ্যাপ উপলব্ধ</p>
+                                </div>
+                            </div>
+                            <div class="profile-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                   <p class="text-dark-50 mb-0" style="font-family: 'Noto Sans Bengali', sans-serif;">
+    <strong data-cms-id="about-107" data-cms-kind="text">পপুলার ডায়াগনস্টিক (গাজীপুর):</strong> <span data-cms-id="about-139" data-cms-kind="text">শিববাড়ি মোড়, শনি-বৃহস্পতি ২:৩০-৫:০০ বিকাল (শুক্রবার বন্ধ)</span><br>
+    <strong data-cms-id="about-108" data-cms-kind="text">ল্যাবএইড (উত্তরা):</strong> <span data-cms-id="about-140" data-cms-kind="text">হাউস ৮, রোড ১২, সেক্টর ৬, প্রতিদিন ৭:০০-৯:০০ রাত (মঙ্গল ও শুক্রবার বন্ধ)</span>
+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- Footer -->
+    <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 mt-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6 pe-lg-5">
+                    <a href="#" class="navbar-brand"><img src="img/themaincolorlogo.png" alt="ডা. এম. এ. বি. সিদ্দিক" style="height: 80px; width: auto; object-fit: contain; margin-bottom: 1rem; filter: brightness(0) invert(1);" data-cms-id="about-109" data-cms-kind="image"></a>
+                    <p><span data-cms-id="about-141" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক</span><br><span data-cms-id="about-142" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারী), এমএস (জেনারেল সার্জারী) বিএসএমএমইউ</span><br><span data-cms-id="about-143" data-cms-kind="text">কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</span><br><span data-cms-id="about-144" data-cms-kind="text">পপুলার ডায়াগনস্টিক সেন্টার, গাজীপুর | ল্যাবএইড লি., উত্তরা, ঢাকা</span></p>
+                    <p class="mb-2" data-cms-id="about-110" data-cms-kind="text"><i class="fa fa-map-marker-alt me-2"></i>শিববাড়ি মোড়, জয়দেবপুর, গাজীপুর ও বাড়ি ৮, রোড ১২, সেক্টর ৬, ঢাকা</p>
+                    <p class="mb-2" data-cms-id="about-111" data-cms-kind="text"><i class="fa fa-phone-alt me-2"></i>+88 01710-1001161</p>
+                    <p class="mb-2" data-cms-id="about-112" data-cms-kind="text"><i class="fa fa-envelope me-2"></i>info@drmabsiddik.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-sm-square btn-primary me-3" href="https://www.facebook.com/Dr.SiddiqueOfficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-sm-square btn-primary me-3" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-sm-square btn-primary me-3" href="https://wa.me/88017121003161" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <h5 class="text-primary mb-4" data-cms-id="about-113" data-cms-kind="text">সার্জিক্যাল সেবা</h5>
+                            <a class="btn btn-link" href="#" data-cms-id="about-114" data-cms-kind="text">ক্যান্সার সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-115" data-cms-kind="text">ল্যাপারোস্কোপিক সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-116" data-cms-kind="text">ব্রেস্ট সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-117" data-cms-kind="text">কোলোরেক্টাল সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-118" data-cms-kind="text">অ্যানোরেক্টাল সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-119" data-cms-kind="text">এন্ডোস্কোপি ও কোলোনোস্কোপি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-120" data-cms-kind="text">জেনারেল সার্জারি</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="text-primary mb-4" data-cms-id="about-121" data-cms-kind="text">দ্রুত লিংক</h5>
+                            <a class="btn btn-link" href="#" data-cms-id="about-122" data-cms-kind="text">পরিচয়</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-123" data-cms-kind="text">যোগাযোগ</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-124" data-cms-kind="text">সেবাসমূহ</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-125" data-cms-kind="text">গ্যালারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="about-126" data-cms-kind="text">হোম</a>
+                        </div>
+                        <div class="col-sm-12">
+                            <h5 class="text-primary mb-4" data-cms-id="about-127" data-cms-kind="text">পরামর্শের সময়সূচি</h5>
+                            <p class="text-white-50 mb-0"><strong data-cms-id="about-128" data-cms-kind="text">পপুলার ডায়াগনস্টিক (গাজীপুর):</strong> <span data-cms-id="about-145" data-cms-kind="text">শিববাড়ি মোড়, শনি-বৃহস্পতি ২:৩০-৫:০০PM (শুক্র বন্ধ)</span><br>
+                            <strong data-cms-id="about-129" data-cms-kind="text">ল্যাবএইড (উত্তরা):</strong> <span data-cms-id="about-146" data-cms-kind="text">বাড়ি ৮, রোড ১২, সেক্টর ৬, প্রতিদিন ৭:০০-৯:০০PM (মঙ্গল ও শুক্র বন্ধ)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top border-secondary py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0"><span data-cms-id="about-147" data-cms-kind="text">&copy;</span> <a class="border-bottom" href="#" data-cms-id="about-130" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক - কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</a><span data-cms-id="about-148" data-cms-kind="text">, সমস্ত অধিকার সংরক্ষিত।</span></div>
+                <div class="col-md-6 text-center text-md-end"><span data-cms-id="about-149" data-cms-kind="text">ডিজাইন করেছেন</span> <a class="border-bottom" href="https://www.facebook.com/aurazoneofficial" target="_blank" data-cms-id="about-131" data-cms-kind="text">Aurazone</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="npm/bootstrap-5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+<script>window.CMS_PAGE="about";</script>
+<script src="/cms/cms-theme.js"></script>
+<script src="/cms/cms-content.js"></script>
+</body>
+</html>
+```

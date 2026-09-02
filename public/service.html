@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=41dae657-2c20-4ea5-9e38-425890344b45
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=41dae657-2c20-4ea5-9e38-425890344b45">
+    <title>Services - Dr. Ashikul Arefin | Dental Surgeon, Prosthodontics & Implant Specialist</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Dr. Galib services, medicine, diabetes treatment, thyroid, rheumatology, Satkhira" name="keywords">
+    <meta         content="Medical services offered by Dr. Ashadullah-Al-Galib including Internal Medicine, Diabetes Management, Thyroid Treatment, and Rheumatology."
+        name="description">
+    <link  rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link         href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <link href="ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="npm/bootstrap-icons-1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ===== Service Cards Premium with Dotted Borders ===== */
+        .service-premium-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px dashed rgba(191, 148, 86, 0.25);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bs-primary), #d4a95a);
+            border-radius: 0 0 4px 4px;
+            transition: width 0.4s ease;
+        }
+        .service-premium-card:hover::before { width: 100%; }
+        .service-premium-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(191, 148, 86, 0.18);
+            border-color: var(--bs-primary);
+            border-style: solid;
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px dashed var(--bs-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .service-premium-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+            border-style: solid;
+        }
+        .service-icon i {
+            font-size: 2rem;
+            color: var(--bs-primary);
+            transition: color 0.4s ease;
+        }
+        .service-premium-card:hover .service-icon i { color: #fff; }
+        .service-premium-card h4 {
+            font-family: "Playfair Display", serif;
+            font-weight: 500;
+            color: var(--bs-dark);
+            margin-bottom: 1rem;
+        }
+        .service-premium-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .service-premium-card ul {
+            text-align: left;
+            padding-left: 0;
+            list-style: none;
+        }
+        .service-premium-card ul li {
+            padding: 0.35rem 0;
+            color: #555;
+            font-size: 0.88rem;
+            border-bottom: 1px dashed rgba(191, 148, 86, 0.15);
+        }
+        .service-premium-card ul li:last-child { border-bottom: none; }
+        .service-premium-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--bs-primary);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        /* ===== Testimonial Card Redesign ===== */
+        .testimonial-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem 1.5rem 1.5rem;
+            border: 2px dashed rgba(191, 148, 86, 0.2);
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            margin-top: 40px;
+        }
+        .testimonial-card:hover {
+            border-style: solid;
+            border-color: var(--bs-primary);
+            box-shadow: 0 20px 50px rgba(191, 148, 86, 0.15);
+            transform: translateY(-5px);
+        }
+        .testimonial-card .tc-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -60px auto 1rem;
+            box-shadow: 0 6px 20px rgba(191, 148, 86, 0.35);
+            border: 4px solid #fff;
+        }
+        .testimonial-card .tc-avatar i { font-size: 1.8rem; color: #fff; }
+        .testimonial-card .tc-stars { color: #f5c518; font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+        .testimonial-card .tc-quote {
+            position: relative;
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.75;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            padding: 0 0.5rem;
+        }
+        .testimonial-card .tc-quote::before {
+            content: '\201C';
+            font-size: 3rem;
+            color: var(--bs-primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            font-family: serif;
+            line-height: 1;
+        }
+        .testimonial-card .tc-divider { width: 40px; height: 2px; background: var(--bs-primary); margin: 0 auto 0.75rem; border-radius: 2px; }
+        .testimonial-card .tc-name { font-family: "Playfair Display", serif; font-weight: 500; color: var(--bs-dark); font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .testimonial-card .tc-role {
+            display: inline-block;
+            background: rgba(191, 148, 86, 0.1);
+            border: 1px dashed rgba(191, 148, 86, 0.3);
+            border-radius: 50px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--bs-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* ===== CTA Banner ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--bs-primary), #d4a95a);
+            border-radius: 16px;
+            padding: 3rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px dashed rgba(255,255,255,0.2);
+        }
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px dashed rgba(255,255,255,0.15);
+        }
+        .cta-banner h3 { font-family: "Playfair Display", serif; }
+        .cta-banner .btn-dark { border: 2px dashed rgba(255,255,255,0.3); }
+        .cta-banner .btn-dark:hover { border-style: solid; }
+    </style>
+<!--CMS-THEME-START-->
+<style id="cms-static-theme">
+:root{--bs-primary:#f39c12;--bs-primary-rgb:243,156,18;}
+/*!
+ * Bootstrap v5.0.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */:root{--bs-blue: #0d6efd;--bs-indigo: #6610f2;--bs-purple: #6f42c1;--bs-pink: #d63384;--bs-red: #dc3545;--bs-orange: #fd7e14;--bs-yellow: #ffc107;--bs-green: #198754;--bs-teal: #20c997;--bs-cyan: #0dcaf0;--bs-white: #fff;--bs-gray: #6c757d;--bs-gray-dark: #343a40;--bs-primary: #f39c12;--bs-secondary: #444444;--bs-success: #198754;--bs-info: #0dcaf0;--bs-warning: #ffc107;--bs-danger: #dc3545;--bs-light: #F8F7F4;--bs-dark: #252525;--bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))}
+a{color:#f39c12;text-decoration:none}
+.form-check-input:checked{background-color:#f39c12;border-color:#f39c12}
+.form-check-input[type=checkbox]:indeterminate{background-color:#f39c12;border-color:#f39c12;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")}
+.form-range::-webkit-slider-thumb{width:1rem;height:1rem;margin-top:-0.25rem;background-color:#f39c12;border:0;border-radius:1rem;-webkit-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;-webkit-appearance:none;appearance:none}
+.form-range::-moz-range-thumb{width:1rem;height:1rem;background-color:#f39c12;border:0;border-radius:1rem;-moz-transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;-moz-appearance:none;appearance:none}
+.btn-primary{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-primary:disabled,.btn-primary.disabled{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-outline-primary{color:#f39c12;border-color:#f39c12}
+.btn-outline-primary:hover{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-check:checked+.btn-outline-primary,.btn-check:active+.btn-outline-primary,.btn-outline-primary:active,.btn-outline-primary.active,.btn-outline-primary.dropdown-toggle.show{color:#000;background-color:#f39c12;border-color:#f39c12}
+.btn-outline-primary:disabled,.btn-outline-primary.disabled{color:#f39c12;background-color:rgba(0,0,0,0)}
+.btn-link{font-weight:400;color:#f39c12;text-decoration:none}
+.dropdown-item.active,.dropdown-item:active{color:#fff;text-decoration:none;background-color:#f39c12}
+.dropdown-menu-dark .dropdown-item.active,.dropdown-menu-dark .dropdown-item:active{color:#fff;background-color:#f39c12}
+.nav-link{display:block;padding:.5rem 1rem;color:#f39c12;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out}
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link{color:#fff;background-color:#f39c12}
+.page-link{position:relative;display:block;color:#f39c12;background-color:#fff;border:1px solid #dee2e6;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+.page-item.active .page-link{z-index:3;color:#fff;background-color:#f39c12;border-color:#f39c12}
+.progress-bar{display:flex;flex-direction:column;justify-content:center;overflow:hidden;color:#fff;text-align:center;white-space:nowrap;background-color:#f39c12;transition:width .6s ease}
+.list-group-item.active{z-index:2;color:#fff;background-color:#f39c12;border-color:#f39c12}
+.link-primary{color:#f39c12}
+.border-primary{border-color:#f39c12 !important}
+.text-primary{color:#f39c12 !important}
+.bg-primary{background-color:#f39c12 !important}
+
+
+</style>
+<!--CMS-THEME-END-->
+</head>
+<body>
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only" data-cms-id="service-1" data-cms-kind="text">Loading...</span>
+        </div>
+    </div>
+    <!-- nav -->
+    <div class="container-fluid bg-light sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <a class='navbar-brand py-2 px-3 me-0' href='index.html' style='background: var(--bs-primary);'>
+                <img src="img/themaincolorlogo.png" alt="ডা. এম. এ. বি. সিদ্দিক - সার্জন" style="height: 70px; width: auto; display: block; object-fit: contain;" data-cms-id="service-2" data-cms-kind="image">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-item nav-link active" href="index.html" data-cms-id="service-3" data-cms-kind="text">হোম</a>
+                    <a class="nav-item nav-link" href="about.html" data-cms-id="service-4" data-cms-kind="text">পরিচয়</a>
+                    <a class="nav-item nav-link" href="service.html" data-cms-id="service-5" data-cms-kind="text">সেবাসমূহ</a>
+                    <a class="nav-item nav-link" href="gallery.html" data-cms-id="service-6" data-cms-kind="text">গ্যালারি</a>
+                    <a class="nav-item nav-link" href="contact.html" data-cms-id="service-7" data-cms-kind="text">যোগাযোগ</a>
+                </div>
+                <a class="btn btn-sm btn-primary" href="contact.html" data-cms-id="service-8" data-cms-kind="text">এপয়েন্টমেন্ট বুক করুন</a>
+            </div>
+        </nav>
+    </div>
+    <!-- nav -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container text-center py-5">
+            <h1 class="display-1 animated slideInLeft" data-cms-id="service-9" data-cms-kind="text">Our Services</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
+                    <li class="breadcrumb-item"><a class="text-primary" href="index.html" data-cms-id="service-10" data-cms-kind="text">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" data-cms-id="service-11" data-cms-kind="text">Services</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- services -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="font-dancing-script text-primary" data-cms-id="service-12" data-cms-kind="text">সেবাসমূহ</h1>
+                <h1 class="mb-3" data-cms-id="service-13" data-cms-kind="text">উন্নত সার্জিক্যাল সেবা</h1>
+            </div>
+            <div class="row g-4">
+                <!-- 1. Cancer Surgery -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-ribbon" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-14" data-cms-kind="text">ক্যান্সার সার্জারি</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-15" data-cms-kind="text">Cancer Surgery</p>
+                        <p style="flex:1;" data-cms-id="service-16" data-cms-kind="text">কোলোরেক্টাল, পাকস্থলী, পেটের, হেপাটোবিলিয়ারি ও ব্রেস্ট ক্যান্সারের বিশ্বমানের সার্জারি।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-17" data-cms-kind="text">পেট, কোলন, স্তন ও লিভারের ক্যান্সারের উন্নত সার্জারি।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-18" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2. Laparoscopic Surgery -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-microscope" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-19" data-cms-kind="text">ল্যাপারোস্কোপিক সার্জারি</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-20" data-cms-kind="text">Laparoscopic Surgery</p>
+                        <p style="flex:1;" data-cms-id="service-21" data-cms-kind="text">পিত্তথলির পাথর, অ্যাপেন্ডিসাইটিস, হার্নিয়া, ভেরিকোসিল, পেটের টিউমারের ন্যূনতম আক্রমণাত্মক সার্জারি।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-22" data-cms-kind="text">পেট না কেটে গলব্লাডার, অ্যাপেন্ডিক্স, হার্নিয়ার অপারেশন।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-23" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3. Breast Surgery -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-female" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-24" data-cms-kind="text">ব্রেস্ট সার্জারি</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-25" data-cms-kind="text">Breast Surgery</p>
+                        <p style="flex:1;" data-cms-id="service-26" data-cms-kind="text">স্তনের আকৃতি ঠিক রেখে অনকোপ্লাস্টিক ব্রেস্ট সার্জারি ও টিউমার অপারেশন।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-27" data-cms-kind="text">স্তনের ক্যান্সার ও টিউমারের আধুনিক অস্ত্রোপচার।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-28" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4. Colorectal & Anorectal -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-procedures" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-29" data-cms-kind="text">কোলোরেক্টাল ও অ্যানোরেক্টাল</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-30" data-cms-kind="text">Colorectal & Anorectal</p>
+                        <p style="flex:1;" data-cms-id="service-31" data-cms-kind="text">পাইলস, অ্যানাল ফিসার, ফিস্টুলা, পেরিএনাল এবসেসের লেজার ও লঙ্গো সার্জারি।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-32" data-cms-kind="text">পাইলস, ফিস্টুলা, ফিশারের লেজার ও অত্যাধুনিক চিকিৎসা।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-33" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5. Endoscopy & Colonoscopy -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-eye" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-34" data-cms-kind="text">এন্ডোস্কোপি ও কোলোনোস্কোপি</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-35" data-cms-kind="text">Endoscopy & Colonoscopy</p>
+                        <p style="flex:1;" data-cms-id="service-36" data-cms-kind="text">রোগ নির্ণয়, বায়োপসি, পলিপেকটমি ও বিদেশি বস্তু অপসারণ।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-37" data-cms-kind="text">পেট ও কোলনের রোগ নির্ণয়, বায়োপসি, পলিপ অপসারণ।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-38" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6. General Surgery -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                    <div style="background:#fff; border-radius:16px; padding:2rem 1.5rem; border:2px dashed rgba(191,148,86,0.25); height:100%; display:flex; flex-direction:column;">
+                        <div style="width:65px; height:65px; border-radius:50%; background:linear-gradient(135deg, #BF9456, #d4a95a); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;">
+                            <i class="fas fa-user-md" style="font-size:1.5rem; color:#fff;"></i>
+                        </div>
+                        <h5 style="text-align:center;" data-cms-id="service-39" data-cms-kind="text">জেনারেল সার্জারি</h5>
+                        <p style="text-align:center; color:#BF9456;" data-cms-id="service-40" data-cms-kind="text">General Surgery</p>
+                        <p style="flex:1;" data-cms-id="service-41" data-cms-kind="text">থাইরয়েড, পেট, ও নরম টিস্যুর সকল ধরনের অপারেশন।</p>
+                        <p style="border-top:1px dashed #ccc; padding-top:8px;" data-cms-id="service-42" data-cms-kind="text">থাইরয়েড, পেট, ও নরম টিস্যুর সকল ধরনের অপারেশন।</p>
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="contact.html" style="display:inline-block; background:#BF9456; color:#fff; padding:6px 20px; border-radius:30px; text-decoration:none; font-weight:500; font-size:0.9rem;" data-cms-id="service-43" data-cms-kind="text">বিস্তারিত</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- services -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="cta-banner text-center wow fadeIn" data-wow-delay="0.2s">
+            <h3 class="mb-3" style="color: white;" data-cms-id="service-44" data-cms-kind="text">বিশেষজ্ঞ সার্জনের পরামর্শ প্রয়োজন?</h3>
+            <p class="mb-4">
+                <span data-cms-id="service-89" data-cms-kind="text">আজই ডা. এম. এ. বি. সিদ্দিক-এর সাথে আপনার অ্যাপয়েন্টমেন্ট বুক করুন।</span><br>
+                <span data-cms-id="service-90" data-cms-kind="text">কোলোরেক্টাল | এডভান্সড ল্যাপারোস্কোপিক | ব্রেস্ট ও ক্যান্সার সার্জন</span><br>
+                <span data-cms-id="service-91" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারী), এমএস (জেনারেল সার্জারী)</span><br>
+                <span data-cms-id="service-92" data-cms-kind="text">সহকারী অধ্যাপক (সার্জারী বিভাগ), বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় ও শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ</span>
+            </p>
+            <a class="btn btn-dark text-uppercase px-5 py-3" href="contact.html" data-cms-id="service-45" data-cms-kind="text">অ্যাপয়েন্টমেন্ট বুক করুন</a>
+        </div>
+    </div>
+</div>
+<!-- review -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <div class="text-center wow fadeIn" data-wow-delay="0.2s">
+            <h1 class="font-dancing-script text-primary" data-cms-id="service-46" data-cms-kind="text">রোগীদের মতামত</h1>
+            <h1 class="mb-5" data-cms-id="service-47" data-cms-kind="text">আমাদের রোগীরা যা বলেন</h1>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-48" data-cms-kind="text">
+                        ডা. এম. এ. বি. সিদ্দিক অত্যন্ত দক্ষ ও আন্তরিক একজন সার্জন। আমার অপারেশন অত্যন্ত সফল হয়েছে এবং এখন আমি সম্পূর্ণ সুস্থ।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-49" data-cms-kind="text">মোঃ আরিফ হোসেন</div>
+                    <span class="tc-role" data-cms-id="service-50" data-cms-kind="text">সার্জারি রোগী</span>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-51" data-cms-kind="text">
+                        ল্যাপারোস্কোপিক সার্জারির মাধ্যমে খুব অল্প সময়ে সুস্থ হয়ে উঠেছি। ডাক্তারের ব্যবহার এবং চিকিৎসা ছিল অসাধারণ।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-52" data-cms-kind="text">নুসরাত জাহান</div>
+                    <span class="tc-role" data-cms-id="service-53" data-cms-kind="text">ল্যাপারোস্কোপিক সার্জারি রোগী</span>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-54" data-cms-kind="text">
+                        ব্রেস্ট সার্জারির আগে ডাক্তার সবকিছু খুব সুন্দরভাবে বুঝিয়ে দিয়েছিলেন। পুরো চিকিৎসা প্রক্রিয়ায় আমি সন্তুষ্ট।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-55" data-cms-kind="text">সাবিহা আক্তার</div>
+                    <span class="tc-role" data-cms-id="service-56" data-cms-kind="text">ব্রেস্ট সার্জারি রোগী</span>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-57" data-cms-kind="text">
+                        কোলোরেক্টাল সমস্যার জন্য দীর্ঘদিন ভুগছিলাম। ডা. সিদ্দিকের চিকিৎসায় এখন অনেক ভালো আছি।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-58" data-cms-kind="text">মোঃ শাহীন আলম</div>
+                    <span class="tc-role" data-cms-id="service-59" data-cms-kind="text">কোলোরেক্টাল রোগী</span>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-60" data-cms-kind="text">
+                        দক্ষতা, আন্তরিকতা এবং রোগীর প্রতি যত্ন—সবকিছু মিলিয়ে তিনি একজন অসাধারণ সার্জন। সবাইকে সুপারিশ করবো।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-61" data-cms-kind="text">ফারহানা ইয়াসমিন</div>
+                    <span class="tc-role" data-cms-id="service-62" data-cms-kind="text">সন্তুষ্ট রোগী</span>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                <div class="testimonial-card p-4 h-100">
+                    <div class="tc-avatar"><i class="fas fa-heart"></i></div>
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="tc-quote" data-cms-id="service-63" data-cms-kind="text">
+                        ক্যান্সার সার্জারির পুরো চিকিৎসা অত্যন্ত সফল হয়েছে। ডাক্তারের অভিজ্ঞতা ও আত্মবিশ্বাস আমাদের সাহস জুগিয়েছে।
+                    </div>
+                    <div class="tc-divider"></div>
+                    <div class="tc-name" data-cms-id="service-64" data-cms-kind="text">আব্দুল্লাহ আল মামুন</div>
+                    <span class="tc-role" data-cms-id="service-65" data-cms-kind="text">ক্যান্সার সার্জারি রোগী</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- review -->
+<!-- Footer -->
+    <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 mt-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6 pe-lg-5">
+                    <a href="#" class="navbar-brand"><img src="img/themaincolorlogo.png" alt="ডা. এম. এ. বি. সিদ্দিক" style="height: 80px; width: auto; object-fit: contain; margin-bottom: 1rem; filter: brightness(0) invert(1);" data-cms-id="service-66" data-cms-kind="image"></a>
+                    <p><span data-cms-id="service-93" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক</span><br><span data-cms-id="service-94" data-cms-kind="text">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস (সার্জারী), এমএস (জেনারেল সার্জারী) বিএসএমএমইউ</span><br><span data-cms-id="service-95" data-cms-kind="text">কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</span><br><span data-cms-id="service-96" data-cms-kind="text">পপুলার ডায়াগনস্টিক সেন্টার, গাজীপুর | ল্যাবএইড লি., উত্তরা, ঢাকা</span></p>
+                    <p class="mb-2" data-cms-id="service-67" data-cms-kind="text"><i class="fa fa-map-marker-alt me-2"></i>শিববাড়ি মোড়, জয়দেবপুর, গাজীপুর ও বাড়ি ৮, রোড ১২, সেক্টর ৬, ঢাকা</p>
+                    <p class="mb-2" data-cms-id="service-68" data-cms-kind="text"><i class="fa fa-phone-alt me-2"></i>+88 01710-1001161</p>
+                    <p class="mb-2" data-cms-id="service-69" data-cms-kind="text"><i class="fa fa-envelope me-2"></i>info@drmabsiddik.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-sm-square btn-primary me-3" href="https://www.facebook.com/Dr.SiddiqueOfficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-sm-square btn-primary me-3" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-sm-square btn-primary me-3" href="https://wa.me/88017121003161" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <h5 class="text-primary mb-4" data-cms-id="service-70" data-cms-kind="text">সার্জিক্যাল সেবা</h5>
+                            <a class="btn btn-link" href="#" data-cms-id="service-71" data-cms-kind="text">ক্যান্সার সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-72" data-cms-kind="text">ল্যাপারোস্কোপিক সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-73" data-cms-kind="text">ব্রেস্ট সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-74" data-cms-kind="text">কোলোরেক্টাল সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-75" data-cms-kind="text">অ্যানোরেক্টাল সার্জারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-76" data-cms-kind="text">এন্ডোস্কোপি ও কোলোনোস্কোপি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-77" data-cms-kind="text">জেনারেল সার্জারি</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="text-primary mb-4" data-cms-id="service-78" data-cms-kind="text">দ্রুত লিংক</h5>
+                            <a class="btn btn-link" href="#" data-cms-id="service-79" data-cms-kind="text">পরিচয়</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-80" data-cms-kind="text">যোগাযোগ</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-81" data-cms-kind="text">সেবাসমূহ</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-82" data-cms-kind="text">গ্যালারি</a>
+                            <a class="btn btn-link" href="#" data-cms-id="service-83" data-cms-kind="text">হোম</a>
+                        </div>
+                        <div class="col-sm-12">
+                            <h5 class="text-primary mb-4" data-cms-id="service-84" data-cms-kind="text">পরামর্শের সময়সূচি</h5>
+                            <p class="text-white-50 mb-0"><strong data-cms-id="service-85" data-cms-kind="text">পপুলার ডায়াগনস্টিক (গাজীপুর):</strong> <span data-cms-id="service-97" data-cms-kind="text">শিববাড়ি মোড়, শনি-বৃহস্পতি ২:৩০-৫:০০PM (শুক্র বন্ধ)</span><br>
+                            <strong data-cms-id="service-86" data-cms-kind="text">ল্যাবএইড (উত্তরা):</strong> <span data-cms-id="service-98" data-cms-kind="text">বাড়ি ৮, রোড ১২, সেক্টর ৬, প্রতিদিন ৭:০০-৯:০০PM (মঙ্গল ও শুক্র বন্ধ)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top border-secondary py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0"><span data-cms-id="service-99" data-cms-kind="text">&copy;</span> <a class="border-bottom" href="#" data-cms-id="service-87" data-cms-kind="text">ডা. এম. এ. বি. সিদ্দিক - কোলোরেক্টাল, ল্যাপারোস্কোপিক ও ক্যান্সার সার্জন</a><span data-cms-id="service-100" data-cms-kind="text">, সমস্ত অধিকার সংরক্ষিত।</span></div>
+                <div class="col-md-6 text-center text-md-end"><span data-cms-id="service-101" data-cms-kind="text">ডিজাইন করেছেন</span> <a class="border-bottom" href="https://www.facebook.com/aurazoneofficial" target="_blank" data-cms-id="service-88" data-cms-kind="text">Aurazone</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="npm/bootstrap-5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+<script>window.CMS_PAGE="service";</script>
+<script src="/cms/cms-theme.js"></script>
+<script src="/cms/cms-content.js"></script>
+</body>
+</html>
