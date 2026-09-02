@@ -367,6 +367,7 @@
     bar.querySelector("#cms-settings").onclick = toggleSettings;
     bar.querySelector("#cms-logout").onclick = logout;
     bindClickEditing();
+    bindFsHover();
 
     toast("\u098f\u09a1\u09bf\u099f \u09ae\u09cb\u09a1 \u099a\u09be\u09b2\u09c1");
   }
