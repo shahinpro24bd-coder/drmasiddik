@@ -33,6 +33,9 @@
     ".cms-sw{width:100%;padding-top:100%;border-radius:6px;cursor:pointer;border:2px solid transparent}",
     ".cms-sw.sel{border-color:#111827;box-shadow:0 0 0 2px #fff inset}",
     ".cms-toast{position:fixed;left:50%;top:20px;transform:translateX(-50%);z-index:2147483600;background:#111827;color:#fff;padding:10px 18px;border-radius:10px;font-family:system-ui,sans-serif;font-size:14px}",
+    ".cms-fs{position:absolute;z-index:2147482500;display:flex;gap:4px;background:#111827;border-radius:8px;padding:3px;box-shadow:0 6px 18px rgba(0,0,0,.3)}",
+    ".cms-fs button{border:0;border-radius:6px;background:#fff;color:#111;font-family:system-ui,sans-serif;font-size:12px;font-weight:700;padding:4px 9px;cursor:pointer;line-height:1}",
+    ".cms-fs button:hover{background:#dc2646;color:#fff}",
   ].join("\n");
   document.head.appendChild(css);
 
