@@ -857,6 +857,7 @@ a{color:#f39c12;text-decoration:none}
         let isDragging = false;
         function updateSlider(percent) { percent = Math.max(0, Math.min(100, percent)); const clipRight = 100 - percent; after16.style.clipPath = `inset(0 ${clipRight}% 0 0)`; after17.style.left = percent + '%'; after18.style.left = percent + '%'; after15.setAttribute('aria-valuenow', Math.round(percent)); }
         function getPercent(clientX) { const rect = after15.getBoundingClientRect(); return ((clientX - rect.left) / rect.width) * 100; }
+        if (after15 && after16 && after17 && after18) {
         after18.addEventListener('mousedown', (e) => { isDragging = true; e.preventDefault(); });
         after15.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(getPercent(e.clientX)); });
         document.addEventListener('mousemove', (e) => { if (!isDragging) return; updateSlider(getPercent(e.clientX)); });
@@ -866,6 +867,7 @@ a{color:#f39c12;text-decoration:none}
         document.addEventListener('touchmove', (e) => { if (!isDragging) return; updateSlider(getPercent(e.touches[0].clientX)); }, { passive: true });
         document.addEventListener('touchend', () => { isDragging = false; });
         updateSlider(50);
+        }
                 function shareContent() {
             const url = window.location.href;
             if (navigator.clipboard && navigator.clipboard.writeText) {
