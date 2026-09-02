@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicCmsContentRouteImport } from './routes/api/public/cms/content'
+import { Route as ApiPublicCmsLoginRouteImport } from './routes/api/public/cms/login'
+import { Route as ApiPublicCmsLogoutRouteImport } from './routes/api/public/cms/logout'
+import { Route as ApiPublicCmsSaveRouteImport } from './routes/api/public/cms/save'
+import { Route as ApiPublicCmsUploadRouteImport } from './routes/api/public/cms/upload'
+import { Route as ApiPublicCmsImageIdRouteImport } from './routes/api/public/cms/image.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicCmsContentRoute = ApiPublicCmsContentRouteImport.update({
+  id: '/api/public/cms/content',
+  path: '/api/public/cms/content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCmsLoginRoute = ApiPublicCmsLoginRouteImport.update({
+  id: '/api/public/cms/login',
+  path: '/api/public/cms/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCmsLogoutRoute = ApiPublicCmsLogoutRouteImport.update({
+  id: '/api/public/cms/logout',
+  path: '/api/public/cms/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCmsSaveRoute = ApiPublicCmsSaveRouteImport.update({
+  id: '/api/public/cms/save',
+  path: '/api/public/cms/save',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCmsUploadRoute = ApiPublicCmsUploadRouteImport.update({
+  id: '/api/public/cms/upload',
+  path: '/api/public/cms/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCmsImageIdRoute = ApiPublicCmsImageIdRouteImport.update({
+  id: '/api/public/cms/image/$id',
+  path: '/api/public/cms/image/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/cms/content': typeof ApiPublicCmsContentRoute
+  '/api/public/cms/login': typeof ApiPublicCmsLoginRoute
+  '/api/public/cms/logout': typeof ApiPublicCmsLogoutRoute
+  '/api/public/cms/save': typeof ApiPublicCmsSaveRoute
+  '/api/public/cms/upload': typeof ApiPublicCmsUploadRoute
+  '/api/public/cms/image/$id': typeof ApiPublicCmsImageIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/cms/content': typeof ApiPublicCmsContentRoute
+  '/api/public/cms/login': typeof ApiPublicCmsLoginRoute
+  '/api/public/cms/logout': typeof ApiPublicCmsLogoutRoute
+  '/api/public/cms/save': typeof ApiPublicCmsSaveRoute
+  '/api/public/cms/upload': typeof ApiPublicCmsUploadRoute
+  '/api/public/cms/image/$id': typeof ApiPublicCmsImageIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/cms/content': typeof ApiPublicCmsContentRoute
+  '/api/public/cms/login': typeof ApiPublicCmsLoginRoute
+  '/api/public/cms/logout': typeof ApiPublicCmsLogoutRoute
+  '/api/public/cms/save': typeof ApiPublicCmsSaveRoute
+  '/api/public/cms/upload': typeof ApiPublicCmsUploadRoute
+  '/api/public/cms/image/$id': typeof ApiPublicCmsImageIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api/public/cms/content'
+    | '/api/public/cms/login'
+    | '/api/public/cms/logout'
+    | '/api/public/cms/save'
+    | '/api/public/cms/upload'
+    | '/api/public/cms/image/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api/public/cms/content'
+    | '/api/public/cms/login'
+    | '/api/public/cms/logout'
+    | '/api/public/cms/save'
+    | '/api/public/cms/upload'
+    | '/api/public/cms/image/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/cms/content'
+    | '/api/public/cms/login'
+    | '/api/public/cms/logout'
+    | '/api/public/cms/save'
+    | '/api/public/cms/upload'
+    | '/api/public/cms/image/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicCmsContentRoute: typeof ApiPublicCmsContentRoute
+  ApiPublicCmsLoginRoute: typeof ApiPublicCmsLoginRoute
+  ApiPublicCmsLogoutRoute: typeof ApiPublicCmsLogoutRoute
+  ApiPublicCmsSaveRoute: typeof ApiPublicCmsSaveRoute
+  ApiPublicCmsUploadRoute: typeof ApiPublicCmsUploadRoute
+  ApiPublicCmsImageIdRoute: typeof ApiPublicCmsImageIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/cms/content': {
+      id: '/api/public/cms/content'
+      path: '/api/public/cms/content'
+      fullPath: '/api/public/cms/content'
+      preLoaderRoute: typeof ApiPublicCmsContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cms/login': {
+      id: '/api/public/cms/login'
+      path: '/api/public/cms/login'
+      fullPath: '/api/public/cms/login'
+      preLoaderRoute: typeof ApiPublicCmsLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cms/logout': {
+      id: '/api/public/cms/logout'
+      path: '/api/public/cms/logout'
+      fullPath: '/api/public/cms/logout'
+      preLoaderRoute: typeof ApiPublicCmsLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cms/save': {
+      id: '/api/public/cms/save'
+      path: '/api/public/cms/save'
+      fullPath: '/api/public/cms/save'
+      preLoaderRoute: typeof ApiPublicCmsSaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cms/upload': {
+      id: '/api/public/cms/upload'
+      path: '/api/public/cms/upload'
+      fullPath: '/api/public/cms/upload'
+      preLoaderRoute: typeof ApiPublicCmsUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cms/image/$id': {
+      id: '/api/public/cms/image/$id'
+      path: '/api/public/cms/image/$id'
+      fullPath: '/api/public/cms/image/$id'
+      preLoaderRoute: typeof ApiPublicCmsImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicCmsContentRoute: ApiPublicCmsContentRoute,
+  ApiPublicCmsLoginRoute: ApiPublicCmsLoginRoute,
+  ApiPublicCmsLogoutRoute: ApiPublicCmsLogoutRoute,
+  ApiPublicCmsSaveRoute: ApiPublicCmsSaveRoute,
+  ApiPublicCmsUploadRoute: ApiPublicCmsUploadRoute,
+  ApiPublicCmsImageIdRoute: ApiPublicCmsImageIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
