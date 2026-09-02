@@ -192,7 +192,10 @@
     var id = el.getAttribute("data-cms-id");
     /* key by id+kind so a text edit and a font-size change on the SAME
        element are both kept instead of overwriting each other */
-    changes[id + "::" + kind] = { cms_id: id, kind: kind, value: value };
+    /* font-size lives under its own row id so it never overwrites the text
+       of the same element (one DB row per page + cms_id) */
+    var rowId = kind === "fontsize" ? id + "::fs" : id;
+    changes[id + "::" + kind] = { cms_id: rowId, kind: kind, value: value };
     updateBar();
   }
 
