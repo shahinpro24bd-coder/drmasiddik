@@ -1,9 +1,17 @@
 /* CMS content loader — applies saved content to the static page.
-   Loaded on every page (live and edit copy). No flash of stale content:
-   the localStorage cache is applied synchronously before first paint. */
+   Loaded on every page (live and edit copy).
+
+   No flash of stale content:
+   - the requests are started in <head> by cms-boot.js,
+   - a device with a local cache paints the cached content immediately,
+   - a device with no cache is held back by cms-boot.js until the fresh
+     content, font and colour from the database have been applied. */
 (function () {
   var page = window.CMS_PAGE || "index";
   var CACHE_KEY = "cms-cache:" + page;
+  var SETTINGS_KEY = "cms-settings";
+  var boot = window.__CMS_BOOT;
+  var gate = window.__CMS_GATE || { release: function () {} };
 
   function apply(items) {
     if (!items || !items.length) return;
@@ -22,8 +30,6 @@
     }
   }
 
-  var SETTINGS_KEY = "cms-settings";
-
   function toSettings(items) {
     var s = {};
     for (var i = 0; i < (items || []).length; i++) {
@@ -38,48 +44,76 @@
     if (window.CMS_THEME) window.CMS_THEME.apply(s);
   }
 
-  // 1) instant paint from cache
-  try {
-    var cached = localStorage.getItem(CACHE_KEY);
-    if (cached) apply(JSON.parse(cached));
-    var cachedSettings = localStorage.getItem(SETTINGS_KEY);
-    if (cachedSettings) applySettings(JSON.parse(cachedSettings));
-  } catch (e) {}
+  function save(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {}
+  }
 
-  // 1b) fresh site settings (font + theme colour)
-  fetch("/api/public/cms/content?page=site-settings&t=" + Date.now(), { cache: "no-store" })
-    .then(function (r) {
-      return r.json();
-    })
-    .then(function (d) {
-      var s = toSettings(d && d.items);
-      applySettings(s);
-      try {
-        localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-      } catch (e) {}
-      document.dispatchEvent(new CustomEvent("cms:settings", { detail: s }));
-    })
-    .catch(function () {});
+  function read(key) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
 
-  // 2) fresh copy from the database (cache-busted, never cached)
-  fetch("/api/public/cms/content?page=" + encodeURIComponent(page) + "&t=" + Date.now(), {
-    cache: "no-store",
-    headers: { "Cache-Control": "no-cache" },
-  })
-    .then(function (r) {
-      return r.json();
+  /* 1) instant paint from cache (returning devices only) */
+  var cached = read(CACHE_KEY);
+  if (cached) apply(cached);
+  var cachedSettings = read(SETTINGS_KEY);
+  if (cachedSettings) applySettings(cachedSettings);
+
+  /* 2) fresh copy from the database (started in <head> by cms-boot.js) */
+  function fetchFresh(url) {
+    return fetch(url + "&t=" + Date.now(), {
+      cache: "no-store",
+      headers: { "Cache-Control": "no-cache" },
     })
-    .then(function (d) {
-      var items = (d && d.items) || [];
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (d) {
+        return (d && d.items) || [];
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  var contentP =
+    (boot && boot.page === page && boot.content) ||
+    fetchFresh("/api/public/cms/content?page=" + encodeURIComponent(page));
+  var settingsP =
+    (boot && boot.settings) || fetchFresh("/api/public/cms/content?page=site-settings");
+
+  var settingsDone = settingsP.then(function (items) {
+    if (!items) return;
+    var s = toSettings(items);
+    applySettings(s);
+    save(SETTINGS_KEY, s);
+    document.dispatchEvent(new CustomEvent("cms:settings", { detail: s }));
+  });
+
+  var contentDone = contentP.then(function (items) {
+    if (items) {
       apply(items);
-      try {
-        localStorage.setItem(CACHE_KEY, JSON.stringify(items));
-      } catch (e) {}
-      window.CMS_LOADED = true;
-      document.dispatchEvent(new CustomEvent("cms:loaded", { detail: items }));
+      save(CACHE_KEY, items);
+    }
+    window.CMS_LOADED = true;
+    document.dispatchEvent(new CustomEvent("cms:loaded", { detail: items || [] }));
+  });
+
+  /* 3) reveal the page once the saved version is on screen */
+  Promise.all([contentDone, settingsDone])
+    .then(function () {
+      // one frame so the applied styles/text are painted together
+      requestAnimationFrame(function () {
+        requestAnimationFrame(gate.release);
+      });
     })
     .catch(function () {
-      window.CMS_LOADED = true;
-      document.dispatchEvent(new CustomEvent("cms:loaded", { detail: [] }));
+      gate.release();
     });
 })();
