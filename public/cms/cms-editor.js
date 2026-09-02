@@ -190,7 +190,9 @@
 
   function record(el, kind, value) {
     var id = el.getAttribute("data-cms-id");
-    changes[id] = { cms_id: id, kind: kind, value: value };
+    /* key by id+kind so a text edit and a font-size change on the SAME
+       element are both kept instead of overwriting each other */
+    changes[id + "::" + kind] = { cms_id: id, kind: kind, value: value };
     updateBar();
   }
 
