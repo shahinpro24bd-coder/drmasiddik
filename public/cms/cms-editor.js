@@ -120,6 +120,74 @@
   }
 
 
+  /* ---------- A+ / A- font size buttons on hover ---------- */
+  var fsWidget = null;
+  var fsTarget = null;
+
+  function hideFs() {
+    if (fsWidget) {
+      fsWidget.remove();
+      fsWidget = null;
+      fsTarget = null;
+    }
+  }
+
+  function showFs(el) {
+    if (fsTarget === el && fsWidget) return;
+    hideFs();
+    fsTarget = el;
+    fsWidget = document.createElement("div");
+    fsWidget.className = "cms-fs";
+    fsWidget.innerHTML = "<button type='button' data-fs='-1'>A\u2212</button><button type='button' data-fs='1'>A+</button>";
+    document.body.appendChild(fsWidget);
+    var r = el.getBoundingClientRect();
+    var top = window.scrollY + r.top - fsWidget.offsetHeight - 6;
+    if (top < window.scrollY) top = window.scrollY + r.bottom + 6;
+    fsWidget.style.top = top + "px";
+    fsWidget.style.left = Math.max(4, window.scrollX + r.left) + "px";
+
+    Array.prototype.forEach.call(fsWidget.querySelectorAll("button"), function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var cur = parseFloat(window.getComputedStyle(el).fontSize) || 16;
+        var next = Math.max(8, Math.min(120, cur + 2 * Number(btn.getAttribute("data-fs"))));
+        el.style.fontSize = next + "px";
+        record(el, "fontsize", next + "px");
+      });
+      btn.addEventListener("mousedown", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+    fsWidget.addEventListener("mouseleave", function () {
+      setTimeout(function () {
+        if (fsTarget && !fsTarget.matches(":hover")) hideFs();
+      }, 80);
+    });
+  }
+
+  function bindFsHover() {
+    document.addEventListener("mouseover", function (e) {
+      if (!authed) return;
+      if (e.target.closest(".cms-fs,.cms-bar,.cms-modal,.cms-panel")) return;
+      var el = e.target.closest("[data-cms-id]");
+      if (!el) return;
+      var kind = el.getAttribute("data-cms-kind") || "text";
+      if (kind !== "text") return hideFs();
+      showFs(el);
+    });
+    document.addEventListener("mouseout", function (e) {
+      if (!fsTarget) return;
+      var to = e.relatedTarget;
+      if (to && (fsTarget.contains(to) || (fsWidget && fsWidget.contains(to)))) return;
+      setTimeout(function () {
+        if (fsTarget && !fsTarget.matches(":hover") && !(fsWidget && fsWidget.matches(":hover"))) hideFs();
+      }, 80);
+    });
+    window.addEventListener("scroll", hideFs, true);
+  }
+
   function record(el, kind, value) {
     var id = el.getAttribute("data-cms-id");
     changes[id] = { cms_id: id, kind: kind, value: value };
