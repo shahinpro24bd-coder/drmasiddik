@@ -161,18 +161,21 @@
   }
 
 
-  function collect(cssRules, themeHsl, out) {
+  /* collect the ORIGINAL text of every rule that carries a brand colour.
+     The scan is expensive on this site (thousands of rules), so it runs once
+     and the result is reused for every colour the editor previews. */
+  function collect(cssRules, out) {
     for (var i = 0; i < cssRules.length; i++) {
       var rule = cssRules[i];
       try {
         /* @keyframes: rebuild the whole animation, never emit bare frames */
         if (rule.type === 7 || (rule.cssRules && rule.name && !rule.selectorText)) {
-          if (touched(rule.cssText)) out.push(recolor(rule.cssText, themeHsl));
+          if (touched(rule.cssText)) out.push(rule.cssText);
           continue;
         }
         if (rule.cssRules && rule.type !== 1) {
           var inner = [];
-          collect(rule.cssRules, themeHsl, inner);
+          collect(rule.cssRules, inner);
           if (inner.length && rule.conditionText != null) {
             var at = rule.type === 4 ? "@media " : "@supports ";
             out.push(at + rule.conditionText + "{" + inner.join("") + "}");
@@ -184,12 +187,35 @@
         if (!rule.selectorText || !rule.cssText) continue;
         var text = rule.cssText;
         if (!touched(text)) continue;
-        var body = recolor(text.slice(text.indexOf("{")), themeHsl);
-        out.push(rule.selectorText + body);
+        out.push(rule.selectorText + text.slice(text.indexOf("{")));
       } catch (e) {
         /* unreadable (cross-origin) rule */
       }
     }
+  }
+
+  var sheetCache = null;
+  var sheetCacheCount = 0;
+
+  function brandCss() {
+    if (sheetCache !== null) return sheetCache;
+    var out = [];
+    var sheets = document.styleSheets;
+    for (var i = 0; i < sheets.length; i++) {
+      var cssRules = null;
+      try {
+        cssRules = sheets[i].cssRules;
+      } catch (e) {
+        cssRules = null;
+      }
+      if (!cssRules) continue;
+      var owner = sheets[i].ownerNode;
+      if (owner && (owner.id === "cms-theme-style" || owner.id === "cms-font-style")) continue;
+      collect(cssRules, out);
+    }
+    sheetCache = out.join("\n");
+    sheetCacheCount = sheets.length;
+    return sheetCache;
   }
 
   /* inline style="" attributes */
@@ -255,11 +281,16 @@
           }
         } else if (m.type === "attributes" && m.target.nodeType === 1) {
           var el = m.target;
-          if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,#cms-login-btn")) return;
+          if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,.cms-fs,#cms-login-btn")) return;
           var cur = el.getAttribute("style") || "";
+          var known = el.getAttribute("data-cms-style-orig");
+          /* this change is the one WE just made -> ignore it, otherwise the
+             observer would recolour its own output forever and freeze the tab */
+          if (known != null && cur === recolor(known, themeHsl)) return;
           if (touched(cur)) {
             el.setAttribute("data-cms-style-orig", cur);
-            el.setAttribute("style", recolor(cur, themeHsl));
+            var next = recolor(cur, themeHsl);
+            if (next !== cur) el.setAttribute("style", next);
           }
         }
       });
@@ -303,20 +334,8 @@
       "a:hover{color:" + dark + ";}",
     ];
 
-    var sheets = document.styleSheets;
-    for (var i = 0; i < sheets.length; i++) {
-      var cssRules = null;
-      try {
-        cssRules = sheets[i].cssRules;
-      } catch (e) {
-        cssRules = null;
-      }
-      if (!cssRules) continue;
-      var owner = sheets[i].ownerNode;
-      if (owner && (owner.id === "cms-theme-style" || owner.id === "cms-font-style")) continue;
-      collect(cssRules, themeHsl, out);
-    }
-    styleEl("cms-theme-style").textContent = out.join("\n");
+    styleEl("cms-theme-style").textContent =
+      out.join("\n") + "\n" + recolor(brandCss(), themeHsl);
 
     recolorInline(document.documentElement, themeHsl);
     recolorAttrs(document.documentElement, themeHsl);
@@ -360,6 +379,7 @@
 
   /* stylesheets that finish loading after the first apply */
   window.addEventListener("load", function () {
+    sheetCache = null; /* rescan once every stylesheet is in */
     if (currentColor) applyTheme(currentColor);
   });
 })();
