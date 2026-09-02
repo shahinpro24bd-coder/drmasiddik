@@ -183,6 +183,13 @@ export function patchHtml(html: string, items: CmsItem[]): string {
         out.slice(0, tagStart) + replaceAttr(openTag, "placeholder", item.value) + out.slice(tagEnd + 1);
       continue;
     }
+    if (item.kind === "fontsize") {
+      const style = (openTag.match(/\sstyle\s*=\s*(["'])(.*?)\1/i) || [])[2] || "";
+      const cleaned = style.replace(/(^|;)\s*font-size\s*:[^;]*/gi, "$1").replace(/;;+/g, ";");
+      const nextStyle = `${cleaned}${cleaned.trim() && !cleaned.trim().endsWith(";") ? ";" : ""}font-size:${item.value}`;
+      out = out.slice(0, tagStart) + replaceAttr(openTag, "style", nextStyle) + out.slice(tagEnd + 1);
+      continue;
+    }
     if (item.kind === "bg") {
       const style = (openTag.match(/\sstyle\s*=\s*(["'])(.*?)\1/i) || [])[2] || "";
       const nextStyle = /background(-image)?\s*:/i.test(style)

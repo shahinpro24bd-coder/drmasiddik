@@ -33,6 +33,9 @@
     ".cms-sw{width:100%;padding-top:100%;border-radius:6px;cursor:pointer;border:2px solid transparent}",
     ".cms-sw.sel{border-color:#111827;box-shadow:0 0 0 2px #fff inset}",
     ".cms-toast{position:fixed;left:50%;top:20px;transform:translateX(-50%);z-index:2147483600;background:#111827;color:#fff;padding:10px 18px;border-radius:10px;font-family:system-ui,sans-serif;font-size:14px}",
+    ".cms-fs{position:absolute;z-index:2147482500;display:flex;gap:4px;background:#111827;border-radius:8px;padding:3px;box-shadow:0 6px 18px rgba(0,0,0,.3)}",
+    ".cms-fs button{border:0;border-radius:6px;background:#fff;color:#111;font-family:system-ui,sans-serif;font-size:12px;font-weight:700;padding:4px 9px;cursor:pointer;line-height:1}",
+    ".cms-fs button:hover{background:#dc2646;color:#fff}",
   ].join("\n");
   document.head.appendChild(css);
 
@@ -116,6 +119,74 @@
     );
   }
 
+
+  /* ---------- A+ / A- font size buttons on hover ---------- */
+  var fsWidget = null;
+  var fsTarget = null;
+
+  function hideFs() {
+    if (fsWidget) {
+      fsWidget.remove();
+      fsWidget = null;
+      fsTarget = null;
+    }
+  }
+
+  function showFs(el) {
+    if (fsTarget === el && fsWidget) return;
+    hideFs();
+    fsTarget = el;
+    fsWidget = document.createElement("div");
+    fsWidget.className = "cms-fs";
+    fsWidget.innerHTML = "<button type='button' data-fs='-1'>A\u2212</button><button type='button' data-fs='1'>A+</button>";
+    document.body.appendChild(fsWidget);
+    var r = el.getBoundingClientRect();
+    var top = window.scrollY + r.top - fsWidget.offsetHeight - 6;
+    if (top < window.scrollY) top = window.scrollY + r.bottom + 6;
+    fsWidget.style.top = top + "px";
+    fsWidget.style.left = Math.max(4, window.scrollX + r.left) + "px";
+
+    Array.prototype.forEach.call(fsWidget.querySelectorAll("button"), function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var cur = parseFloat(window.getComputedStyle(el).fontSize) || 16;
+        var next = Math.max(8, Math.min(120, cur + 2 * Number(btn.getAttribute("data-fs"))));
+        el.style.fontSize = next + "px";
+        record(el, "fontsize", next + "px");
+      });
+      btn.addEventListener("mousedown", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+    fsWidget.addEventListener("mouseleave", function () {
+      setTimeout(function () {
+        if (fsTarget && !fsTarget.matches(":hover")) hideFs();
+      }, 80);
+    });
+  }
+
+  function bindFsHover() {
+    document.addEventListener("mouseover", function (e) {
+      if (!authed) return;
+      if (e.target.closest(".cms-fs,.cms-bar,.cms-modal,.cms-panel")) return;
+      var el = e.target.closest("[data-cms-id]");
+      if (!el) return;
+      var kind = el.getAttribute("data-cms-kind") || "text";
+      if (kind !== "text") return hideFs();
+      showFs(el);
+    });
+    document.addEventListener("mouseout", function (e) {
+      if (!fsTarget) return;
+      var to = e.relatedTarget;
+      if (to && (fsTarget.contains(to) || (fsWidget && fsWidget.contains(to)))) return;
+      setTimeout(function () {
+        if (fsTarget && !fsTarget.matches(":hover") && !(fsWidget && fsWidget.matches(":hover"))) hideFs();
+      }, 80);
+    });
+    window.addEventListener("scroll", hideFs, true);
+  }
 
   function record(el, kind, value) {
     var id = el.getAttribute("data-cms-id");
@@ -296,6 +367,7 @@
     bar.querySelector("#cms-settings").onclick = toggleSettings;
     bar.querySelector("#cms-logout").onclick = logout;
     bindClickEditing();
+    bindFsHover();
 
     toast("\u098f\u09a1\u09bf\u099f \u09ae\u09cb\u09a1 \u099a\u09be\u09b2\u09c1");
   }

@@ -23,6 +23,7 @@
         if (it.kind === "image") el.setAttribute("src", it.value);
         else if (it.kind === "placeholder") el.setAttribute("placeholder", it.value);
         else if (it.kind === "bg") el.style.backgroundImage = "url('" + it.value + "')";
+        else if (it.kind === "fontsize") el.style.fontSize = it.value;
         else el.innerHTML = it.value;
       } catch (e) {
         /* ignore a single bad item */
