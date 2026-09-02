@@ -17,7 +17,8 @@
     if (!items || !items.length) return;
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
-      var el = document.querySelector('[data-cms-id="' + it.cms_id + '"]');
+      var domId = String(it.cms_id).replace(/::fs$/, "");
+      var el = document.querySelector('[data-cms-id="' + domId + '"]');
       if (!el) continue;
       try {
         if (it.kind === "image") el.setAttribute("src", it.value);

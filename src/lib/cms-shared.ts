@@ -169,7 +169,7 @@ export type CmsItem = { cms_id: string; kind: string; value: string };
 export function patchHtml(html: string, items: CmsItem[]): string {
   let out = html;
   for (const item of items) {
-    const found = findElement(out, item.cms_id);
+    const found = findElement(out, item.cms_id.replace(/::fs$/, ""));
     if (!found) continue;
     const { tagStart, tagEnd, tagName } = found;
     const openTag = out.slice(tagStart, tagEnd + 1);
