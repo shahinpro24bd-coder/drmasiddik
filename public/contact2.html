@@ -992,14 +992,16 @@ a{color:#bf9456;text-decoration:none}
             }, 2000);
         }
         // Close overlay on outside click
-        document.getElementById('letterOverlay').addEventListener('click', function (e) {
+        var _cmsOverlay = document.getElementById('letterOverlay');
+        if (_cmsOverlay) _cmsOverlay.addEventListener('click', function (e) {
             if (e.target === this) {
                 this.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         });
         // Set minimum date to today
-        document.getElementById('appo16').min = new Date().toISOString().split('T')[0];
+        var _cmsAppoDate = document.getElementById('appo16');
+        if (_cmsAppoDate) _cmsAppoDate.min = new Date().toISOString().split('T')[0];
         function showNotification(message, type) {
             const notification = document.getElementById('appo11');
             const notificationText = document.getElementById('appo18');
