@@ -19,6 +19,36 @@
 
   var currentColor = null;
   var observer = null;
+  var OBSERVER_OPTIONS = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style"],
+  };
+
+  function observeInline() {
+    if (observer && document.documentElement) {
+      observer.observe(document.documentElement, OBSERVER_OPTIONS);
+    }
+  }
+
+  /* Theme writes can touch many inline styles at once. Disconnecting while we
+     write prevents those changes being queued and processed again by our own
+     observer (which could lock up slower devices). */
+  function withoutObserving(fn) {
+    if (observer) {
+      observer.disconnect();
+      observer.takeRecords();
+    }
+    try {
+      fn();
+    } finally {
+      if (observer) {
+        observer.takeRecords();
+        observeInline();
+      }
+    }
+  }
 
   /* the theme sheet must always be the LAST stylesheet in the document so its
      rules win over page-level !important overrides */
@@ -271,36 +301,31 @@
     observer = new MutationObserver(function (muts) {
       if (!currentColor) return;
       var themeHsl = rgbToHsl.apply(null, hexToRgb(currentColor));
-      muts.forEach(function (m) {
-        if (m.type === "childList") {
-          for (var i = 0; i < m.addedNodes.length; i++) {
-            if (m.addedNodes[i].nodeType === 1) {
-              recolorInline(m.addedNodes[i], themeHsl);
-              recolorAttrs(m.addedNodes[i], themeHsl);
+      withoutObserving(function () {
+        muts.forEach(function (m) {
+          if (m.type === "childList") {
+            for (var i = 0; i < m.addedNodes.length; i++) {
+              if (m.addedNodes[i].nodeType === 1) {
+                recolorInline(m.addedNodes[i], themeHsl);
+                recolorAttrs(m.addedNodes[i], themeHsl);
+              }
+            }
+          } else if (m.type === "attributes" && m.target.nodeType === 1) {
+            var el = m.target;
+            if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,.cms-fs,#cms-login-btn")) return;
+            var cur = el.getAttribute("style") || "";
+            var known = el.getAttribute("data-cms-style-orig");
+            if (known != null && cur === recolor(known, themeHsl)) return;
+            if (touched(cur)) {
+              el.setAttribute("data-cms-style-orig", cur);
+              var next = recolor(cur, themeHsl);
+              if (next !== cur) el.setAttribute("style", next);
             }
           }
-        } else if (m.type === "attributes" && m.target.nodeType === 1) {
-          var el = m.target;
-          if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,.cms-fs,#cms-login-btn")) return;
-          var cur = el.getAttribute("style") || "";
-          var known = el.getAttribute("data-cms-style-orig");
-          /* this change is the one WE just made -> ignore it, otherwise the
-             observer would recolour its own output forever and freeze the tab */
-          if (known != null && cur === recolor(known, themeHsl)) return;
-          if (touched(cur)) {
-            el.setAttribute("data-cms-style-orig", cur);
-            var next = recolor(cur, themeHsl);
-            if (next !== cur) el.setAttribute("style", next);
-          }
-        }
+        });
       });
     });
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["style"],
-    });
+    observeInline();
   }
 
   function applyTheme(color) {
@@ -334,13 +359,15 @@
       "a:hover{color:" + dark + ";}",
     ];
 
-    styleEl("cms-theme-style").textContent =
-      out.join("\n") + "\n" + recolor(brandCss(), themeHsl);
+    withoutObserving(function () {
+      styleEl("cms-theme-style").textContent =
+        out.join("\n") + "\n" + recolor(brandCss(), themeHsl);
 
-    recolorInline(document.documentElement, themeHsl);
-    recolorAttrs(document.documentElement, themeHsl);
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", color);
+      recolorInline(document.documentElement, themeHsl);
+      recolorAttrs(document.documentElement, themeHsl);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", color);
+    });
     watchInline();
   }
 
