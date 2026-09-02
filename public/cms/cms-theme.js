@@ -255,11 +255,16 @@
           }
         } else if (m.type === "attributes" && m.target.nodeType === 1) {
           var el = m.target;
-          if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,#cms-login-btn")) return;
+          if (el.closest && el.closest(".cms-panel,.cms-bar,.cms-sw,.cms-fs,#cms-login-btn")) return;
           var cur = el.getAttribute("style") || "";
+          var known = el.getAttribute("data-cms-style-orig");
+          /* this change is the one WE just made -> ignore it, otherwise the
+             observer would recolour its own output forever and freeze the tab */
+          if (known != null && cur === recolor(known, themeHsl)) return;
           if (touched(cur)) {
             el.setAttribute("data-cms-style-orig", cur);
-            el.setAttribute("style", recolor(cur, themeHsl));
+            var next = recolor(cur, themeHsl);
+            if (next !== cur) el.setAttribute("style", next);
           }
         }
       });
